@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>PRAEMIA PDF</title>
+
+    <style>
+        :root {
+            --ui-font: 'Inter', ui-sans-serif, system-ui, Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 210mm;
+            font-family: var(--ui-font);
+            background: white;
+        }
+
+        /* Une page PDF = une div */
+        .pdf-page {
+            width: 210mm;
+            height: 297mm;            /* Format A4 portrait */
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(168, 1.25mm);
+            grid-template-rows: repeat(237, 1.25mm);  /* 297mm / 1.25 = 237 */
+            page-break-after: always;  /* → une vraie page PDF */
+            overflow: hidden;
+        }
+
+        /* Permet d’empiler plusieurs backgrounds */
+        .pdf-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        /* Ton contenu placé en grille */
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Invisible mais détecté pour les signets PDF */
+        .pdf-title {
+            opacity: 0;
+            font-size: 1px;
+            height: 0;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================
+         CHAPITRE 1
+    ============================= -->
+    <h1 class="pdf-title" data-level="1">Chapitre 1 – Introduction</h1>
+
+    <!-- Page 1 -->
+    <div class="pdf-page">
+        <div class="pdf-bg" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2014.png');"></div>
+        
+        <!-- zone en grille -->
+        <div class="content"
+             style="grid-column: 20 / 100; grid-row: 30 / 50;">
+            <!-- TON CONTENU ICI -->
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="pdf-page">
+        <div class="pdf-bg" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2015.png');"></div>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="pdf-page">
+        <div class="pdf-bg" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2016.png');"></div>
+    </div>
+
+
+    <!-- ============================
+         CHAPITRE 2
+    ============================= -->
+    <h1 class="pdf-title" data-level="1">Chapitre 2 – Revenus fonciers NETS</h1>
+
+    <!-- Page 4 -->
+    <div class="pdf-page">
+        <div class="pdf-bg" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2019.png');"></div>
+
+        <div class="content"
+             style="grid-column: 67 / 160; grid-row: 27 / 34;
+                    border: 2px solid #41CBBB;
+                    background: white;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 4px;">
+            
+            <strong>Revenus fonciers NETS:</strong>
+
+            <span style="background:#00685f; color:white; margin-left:4px; padding:2px 4px;">
+                {{TXT_form_2044_total_114_4BA}}
+            </span>
+        </div>
+    </div>
+
+</body>
+</html>

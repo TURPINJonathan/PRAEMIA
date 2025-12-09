@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>PRAEMIA PDF</title>
+
+    <style>
+        :root {
+            --ui-font: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 210mm;
+            font-family: var(--ui-font);
+            background: white;
+        }
+
+        /* ===========================
+           STRUCTURE PDF
+           =========================== */
+
+        /* Une vraie page PDF = 2 sections */
+        .pdf-page {
+            width: 210mm;
+            height: auto;
+            page-break-after: always;
+        }
+
+        /* Demi-page PRAEMIA = 147mm */
+        .page-section {
+            width: 210mm;
+            height: 147mm;
+            display: grid;
+            grid-template-columns: repeat(168, 1.25mm);
+            grid-template-rows: repeat(119, 1.25mm);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Titre invisible utilisé pour chapitrage PDF */
+        .pdf-title {
+            position: absolute;
+            opacity: 0;
+            height: 0;
+            font-size: 1px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================
+         PAGE 1 (Haut + Bas) — Chapitre 1
+    ============================================= -->
+    <h1 class="pdf-title" data-level="1">Chapitre 1 – Introduction</h1>
+
+    <div class="pdf-page">
+
+        <div class="page-section" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2014.png');">
+        </div>
+
+        <div class="page-section" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2015.png');">
+        </div>
+
+    </div>
+
+
+    <!-- ============================================
+         PAGE 2 (Haut + Bas) — Chapitre 1 suite
+    ============================================= -->
+    <div class="pdf-page">
+
+        <div class="page-section" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2016.png');">
+        </div>
+
+        <div class="page-section" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2017.png');">
+        </div>
+
+    </div>
+
+
+    <!-- ============================================
+         PAGE 3 (Haut + Bas) — Chapitre 1 fin
+    ============================================= -->
+    <div class="pdf-page">
+
+        <div class="page-section" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2018.png');">
+        </div>
+
+        <h1 class="pdf-title" data-level="1">Chapitre 2 – Revenus fonciers NETS</h1>
+        <div class="page-section" style="background-image: url('https://raw.githubusercontent.com/TURPINJonathan/PRAEMIA/main/Plan%20de%20travail%2019.png');">
+
+            <!-- EXEMPLE : Zone dynamique en grille -->
+            <div style="
+                grid-column: 67 / 160;
+                grid-row: 27 / 34;
+                border: 2px solid #41CBBB;
+                background:white;
+                display:flex;
+                align-items:center;
+                font-size:10px;
+                padding-left:4px;
+                font-family: var(--ui-font);">
+
+                <strong>Revenus fonciers NETS :</strong>
+                <span style="background:#00685f;color:white;padding:2px 4px;margin-left:4px;">
+                    {{TXT_form_2044_total_114_4BA}}
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================
+         PAGE 4 (Haut + Bas) — Chapitre 2
+    ============================================= -->
+    <h1 class="pdf-title" data-level="1">Chapitre 3 – TODO</h1>
+
+    <div class="pdf-page">
+
+        <div class="page-section" style="background-image:url('...');"></div>
+        <div class="page-section" style="background-image:url('...');"></div>
+
+    </div>
+
+</body>
+</html>
